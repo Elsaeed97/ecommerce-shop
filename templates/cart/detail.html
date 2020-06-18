@@ -28,7 +28,13 @@
 		</a>
 		</td>
 		<td>{{ product.name }}</td>
-		<td>{{ item.quantity }}</td>
+		<td><form action="{% url 'cart:cart_add' product.id %}" method="post">
+		{{ item.update_quantity_form.quantity }}
+		{{ item.update_quantity_form.update }}
+		<input type="submit" class="p-1"  value="Update" style='color:#fff; background-color:#2879d1; border:none;'>
+		{% csrf_token %}
+</form>
+</td>
 		<td><a href="{% url 'cart:cart_remove' product.id%}">Remove</a></td>
 		<td class="num">${{ item.price }}</td>
 		<td class="num">${{ item.total_price }}</td>
@@ -43,8 +49,8 @@
   </tbody>
 </table>
 	<p class="text-right">
-		<a href="{% url 'shop:product_list' %}" class="btn btn-primary button">Continue shopping</a>
-		<a href="#"  class="btn btn-default">Checkout</a>
+		<a href="{% url 'shop:product_list' %}" class="btn btn-default button">Continue shopping</a>
+		<a  class="btn btn-primary" href="{% url 'orders:checkout' %}">Checkout</a>
 	</p>
 </div>
 {% endblock %}
