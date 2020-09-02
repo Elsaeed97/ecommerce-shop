@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'shop',
     # 'cart',
+    'crispy_forms',
     
 ]
 
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'website.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' 
 
 TEMPLATES = [
     {
