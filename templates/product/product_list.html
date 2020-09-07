@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block title %} Souq Store{% endblock title %}
 
@@ -164,18 +165,19 @@
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'shop:product_list' %}">All
+              <a href="{% url 'shop:product_list' %}">{% trans "All" %}</a>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-			{% for c in categories %}
-			<li class="nav-item active" >
 
-              <a class="nav-link" href="{% url 'shop:product_list_by_category' c.slug %}">{{ c.name }}
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-			{% endfor %}
+            {% for c in categories %}
+        <li {% if category.slug == c.slug %} class="nav-item active"{% endif %}>
+          <a class="nav-link"  href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+          <span class="sr-only">(current)</span>
+        </li>
+      {% endfor %}
+
+		
 			  
 
           </ul>
@@ -198,7 +200,7 @@
 
         <!--Grid row-->
         <div class="row wow fadeIn">
-
+<p>{% trans "Products" %}</p>
 	{% for product in products %}
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4">

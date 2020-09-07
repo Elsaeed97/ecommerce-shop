@@ -1,4 +1,6 @@
+{% load i18n %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% block title %}{% endblock title %}</title>
+  <title>{% block title %} {% trans 'My shop' %}{% endblock title %}</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -54,8 +56,9 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="{% url 'shop:product_list' %}" >
-        <strong class="blue-text">E-com Shop</strong>
+        <strong class="blue-text">{% trans "My shop" %}</strong>
       </a>
+
 
       <!-- Collapse -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -86,13 +89,19 @@
 			{% if cart|length > 0 %}
 
 			<a class="nav-link waves-effect"  href="{% url 'cart:cart_detail' %}">
-			<span class="badge red z-depth-1 mr-1">{{ total_items }} item{{ total_items|pluralize }}</span>
+		<span class="badge red z-depth-1 mr-1">{% blocktrans with total=cart.get_total_price count items=total_items %}
+{{ items }} item, ${{ total }}
+  {% plural %}
+{{ items }} items, ${{ total }}
+{% endblocktrans %}
+
+</span>
 			<i class="fas fa-shopping-cart"></i>
-			<span class="clearfix d-none d-sm-inline-block"> Cart </span>
+			<span class="clearfix d-none d-sm-inline-block"> {% trans "Your cart" %} </span>
 			</a>
 			{% else %}
 			<a class="nav-link waves-effect"  href="{% url 'cart:cart_detail' %}">
-			<span class="clearfix d-none d-sm-inline-block"> Your Cart Is Empty </span>
+			<span class="clearfix d-none d-sm-inline-block"> {% trans "Your cart is empty." %}</span>
 			<i class="fas fa-shopping-cart"></i>
 			</a>
 			{% endif %}
@@ -132,7 +141,20 @@
         </ul>
 
       </div>
-
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+<div class="languages">
+<ul class="languages">
+{% for language in languages %}
+<li>
+<a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected" {%endif %}>
+{{ language.name_local }}
+</a>
+</li>
+{% endfor %}
+</ul>
+</div>
     </div>
   </nav>
   <!-- Navbar -->

@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-07 19:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:7
+msgid "Quantity"
+msgstr ""
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr ""
+
+#: templates/base.html:11 templates/base.html:59
+msgid "My shop"
+msgstr ""
+
+#: templates/base.html:91
+#, python-format
+msgid ""
+"\n"
+"%(items)s item, $%(total)s\n"
+"  "
+msgid_plural ""
+"\n"
+"%(items)s items, $%(total)s\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/base.html:99
+msgid "Your cart"
+msgstr ""
+
+#: templates/base.html:103
+msgid "Your cart is empty."
+msgstr ""
+
+#: templates/orders/create.html:4 templates/orders/create.html:8
+msgid "Checkout"
+msgstr ""
+
+#: templates/orders/create.html:15
+msgid "Place order"
+msgstr ""
+
+#: templates/orders/create.html:23
+msgid "Your order"
+msgstr ""
+
+#: templates/orders/create.html:32
+#, python-format
+msgid ""
+"\n"
+"      \t\"%(code)s\" (%(discount)s%% off)\n"
+"\t"
+msgstr ""
+
+#: templates/orders/create.html:39
+msgid "Total"
+msgstr ""
+
+#: templates/product/product_detail.html:58
+msgid "Add to cart"
+msgstr ""
+
+#: website/settings.py:126
+msgid "English"
+msgstr ""
+
+#: website/settings.py:127
+msgid "Spanish"
+msgstr ""
+
+#: website/urls.py:26
+msgid "admin/"
+msgstr ""
+
+#: website/urls.py:29
+msgid "cart/"
+msgstr ""
+
+#: website/urls.py:30
+msgid "orders/"
+msgstr ""
+
+#: website/urls.py:31
+msgid "coupons/"
+msgstr ""

@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% load static %}
 {% block title %} Souq Store{% endblock title %}
   
@@ -53,7 +55,7 @@
 			<form action="{% url 'cart:cart_add' product.id %}" class="d-flex justify-content-left" method="POST">
 				{{ cart_product_form }}
 				{% csrf_token %}
-				<button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+				<button class="btn btn-primary btn-md my-0 p" type="submit">{% trans "Add to cart" %}
 					<i class="fas fa-shopping-cart ml-1"></i>
 					
 				  </button>
